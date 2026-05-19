@@ -55,8 +55,7 @@ class VoucherDesktopApp(tk.Tk):
 
         self._load_master_data()
         self._build_styles()
-        self._build_layout()
-        self._refresh_all_lists()
+        self._build_login_screen()
 
     def _build_styles(self):
         style = ttk.Style(self)
@@ -64,6 +63,32 @@ class VoucherDesktopApp(tk.Tk):
         style.configure("PS.TFrame", background=PeopleSoftStyle.BG)
         style.configure("Panel.TFrame", background=PeopleSoftStyle.PANEL)
         style.configure("PSHeader.TLabel", background=PeopleSoftStyle.HEADER_BLUE, foreground="white", font=("Segoe UI", 10, "bold"))
+
+
+    def _build_login_screen(self):
+        self.login_root = ttk.Frame(self, style="PS.TFrame", padding=18)
+        self.login_root.pack(fill=tk.BOTH, expand=True)
+
+        card = ttk.Frame(self.login_root, style="Panel.TFrame", padding=20)
+        card.place(relx=0.5, rely=0.5, anchor="center")
+
+        ttk.Label(card, text="PeopleSoft AP - Sign In", font=("Segoe UI", 18, "bold")).grid(row=0, column=0, columnspan=2, sticky="w", pady=(0, 12))
+        ttk.Label(card, text="Username").grid(row=1, column=0, sticky="w", padx=4, pady=4)
+        ttk.Label(card, text="Password").grid(row=2, column=0, sticky="w", padx=4, pady=4)
+
+        self.login_username = tk.StringVar()
+        self.login_password = tk.StringVar()
+        ttk.Entry(card, textvariable=self.login_username, width=30).grid(row=1, column=1, sticky="w", padx=4, pady=4)
+        ttk.Entry(card, textvariable=self.login_password, show="*", width=30).grid(row=2, column=1, sticky="w", padx=4, pady=4)
+
+        ttk.Button(card, text="Sign In", command=self._handle_sign_in).grid(row=3, column=1, sticky="e", padx=4, pady=(10, 0))
+        ttk.Label(card, text="Any username/password is accepted.", foreground="#555555").grid(row=4, column=0, columnspan=2, sticky="w", pady=(8, 0))
+
+    def _handle_sign_in(self):
+        # Accept any credentials (including blank), per requirement.
+        self.login_root.destroy()
+        self._build_layout()
+        self._refresh_all_lists()
 
     def _build_layout(self):
         root = ttk.Frame(self, style="PS.TFrame", padding=8)
