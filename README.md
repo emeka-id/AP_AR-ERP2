@@ -1,13 +1,12 @@
 # PeopleSoft AP Voucher Desktop App
 
-This desktop app now mirrors the PeopleSoft-style page flow shown in your mockups:
+This desktop app now supports:
 
-- Creation of a Voucher
-- Invoice Information (with invoice lines + distribution lines)
-- Voucher Approval Workflow
-- Voucher Posting
-- Payment Processing
-- End-to-end workflow tracker
+- **Outstanding invoice list**
+- **Per-invoice voucher visibility** (select invoice, see linked vouchers)
+- **Global voucher status list**
+- **Vendor management** (create new vendors + view vendor list)
+- **Voucher creation tied to vendor + invoice**
 
 ## Run
 
@@ -25,3 +24,8 @@ pyinstaller --noconfirm --onefile --windowed --name PeopleSoftAPVoucherApp peopl
 Output:
 
 - `dist/PeopleSoftAPVoucherApp.exe`
+
+## Data files
+
+- `ap_data.json`: persistent master data (vendors, invoices, vouchers)
+- `voucher_session.json`: UI/session state
