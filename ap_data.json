@@ -1,0 +1,34 @@
+{
+  "vendors": [
+    {
+      "vendor_id": "0000000044",
+      "short_name": "MELS-001",
+      "name": "Mel's Diner",
+      "location": "STANDARD"
+    },
+    {
+      "vendor_id": "1001",
+      "short_name": "Gents Co",
+      "name": "Gents",
+      "location": "Toronto ON"
+    }
+  ],
+  "invoices": [
+    {
+      "invoice_id": "58493ac8",
+      "invoice_number": "123333",
+      "vendor_id": "1001",
+      "gross_amount": "50000",
+      "status": "Outstanding"
+    }
+  ],
+  "vouchers": [
+    {
+      "voucher_id": "192932",
+      "invoice_number": "123333",
+      "vendor_id": "1001",
+      "gross_amount": "50000",
+      "status": "Entered"
+    }
+  ]
+}
